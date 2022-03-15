@@ -1,0 +1,39 @@
+# This file was automatically generated. Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"Mutation root"
+type Mutation {
+  deleteUserProfile(id: ID): Boolean
+  updateUserProfile(input: UserProfileInput): UserProfile
+}
+
+"Query root"
+type Query {
+  findUserProfile(id: ID): UserProfile
+  listUserProfiles: [UserProfile]
+}
+
+type UserProfile {
+  firstName: String
+  id: ID
+  lastName: String
+  photoId: String
+  photoLength: String
+  photoMimeType: String
+  photoOriginalFileName: String
+}
+
+
+input UserProfileInput {
+  firstName: String
+  id: ID
+  lastName: String
+  photoId: String
+  photoLength: String
+  photoMimeType: String
+  photoOriginalFileName: String
+}
