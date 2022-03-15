@@ -1,0 +1,63 @@
+# This file was automatically generated. Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type FsFileRef {
+    contentId: String
+    contentLength: Int
+    contentMimeType: String
+    contentOriginalFileName: String
+}
+
+type JpaFileRef {
+    contentId: String
+    contentLength: Int
+    contentMimeType: String
+    contentOriginalFileName: String
+}
+
+"Mutation root"
+type Mutation {
+    deleteUserProfile(id: ID): Boolean
+    updateUserProfile(input: UserProfileInput): UserProfile
+}
+
+"Query root"
+type Query {
+    findUserProfile(id: ID): UserProfile
+    listUserProfiles: [UserProfile]
+}
+
+type UserProfile {
+    document: JpaFileRef
+    firstName: String
+    id: ID
+    lastName: String
+    photo: FsFileRef
+}
+
+
+input FsFileRefInput {
+    contentId: String
+    contentLength: Int
+    contentMimeType: String
+    contentOriginalFileName: String
+}
+
+input JpaFileRefInput {
+    contentId: String
+    contentLength: Int
+    contentMimeType: String
+    contentOriginalFileName: String
+}
+
+input UserProfileInput {
+    document: JpaFileRefInput
+    firstName: String
+    id: ID
+    lastName: String
+    photo: FsFileRefInput
+}
