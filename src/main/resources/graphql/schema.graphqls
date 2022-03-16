@@ -1,0 +1,46 @@
+# This file was automatically generated. Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type LocalFileRef {
+  mimeType: String
+  originalFileName: String
+  path: String
+  size: Int
+}
+
+"Mutation root"
+type Mutation {
+  deleteProject(id: ID): Boolean
+  updateProject(input: ProjectDtoInput): ProjectDto
+}
+
+type ProjectDto {
+  attachments: [LocalFileRef]
+  id: ID
+  name: String
+}
+
+"Query root"
+type Query {
+  countProjects: Int!
+  findProject(id: ID): ProjectDto
+  listProjects: [ProjectDto]
+}
+
+
+input LocalFileRefInput {
+  mimeType: String
+  originalFileName: String
+  path: String
+  size: Int
+}
+
+input ProjectDtoInput {
+  attachments: [LocalFileRefInput]
+  id: ID
+  name: String
+}
